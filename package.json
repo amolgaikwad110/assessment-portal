@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "node server.js",
+    "build": "ng build --prod",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "heroku-postbuild": "ng build --prod"
@@ -23,6 +23,8 @@
     "@angular/router": "~13.2.0",
     "@swimlane/ngx-charts": "^20.0.1",
     "bootstrap": "^4.6.1",
+    "express": "^4.17.3",
+    "path": "^0.12.7",
     "rxjs": "~7.5.0",
     "save": "^2.4.0",
     "tslib": "^2.3.0",
