@@ -1,0 +1,84 @@
+.dashboard-container{
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.left-menu{
+    background-color: #1976d2;
+    width: 20%;
+    height: 200vh;
+    margin: 0;
+}
+
+.left-menu-heading{
+    margin: 7px 10px;
+}
+
+.left-menu li {
+    list-style: none;
+    cursor: pointer;
+    margin-left: -40px;
+    padding: 6px 12px;
+}
+
+.left-menu li:hover {
+    background-color: rgb(139, 153, 219);
+    color: black;
+    font-weight: 600;
+    transition: all 0.5s ease-in-out;
+}
+
+.left-menu li:active {
+    background-color: rgb(139, 153, 219);
+}
+
+.active {
+    background-color: rgb(139, 153, 219);
+    color: black;
+    font-weight: 600;
+}
+
+.dashboard-content{
+    width: 70%;
+}
+
+.dasboard-content-heading{
+    margin: 4px 20px;
+}
+
+.gridHeading{
+    margin-left: 50px;
+}
+
+table {
+    width: 100%;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+td, th {
+    width: 25%;
+}
+
+.table-container{
+    margin-left: 50px;
+}
+
+.grid-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.export-button{
+    background-color: #1976d2;
+    height: 28px;
+    border: none;
+    box-shadow: 3px 3px 4px lightblue;
+    cursor: pointer;
+    margin-left: 25px;
+}

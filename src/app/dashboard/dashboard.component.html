@@ -1,0 +1,106 @@
+<div class="dashboard-container">
+    <div class="left-menu">
+        <h3 class="left-menu-heading">Technologies</h3>
+        <ul class="menu" id = "menu-ul">
+            <li class="menu-li" id="Angular" [ngClass]="{'active': selectedItem == 'Angular'}" (click)="clickMenu('Angular')">Angular</li>
+            <li class="menu-li" id="Java" [ngClass]="{'active': selectedItem == 'Java'}" (click)="clickMenu('Java')">Java</li>
+            <li class="menu-li" id="QA" [ngClass]="{'active': selectedItem == 'QA'}" (click)="clickMenu('QA')">QA</li>
+            <li class="menu-li" id="DevOps" [ngClass]="{'active': selectedItem == 'DevOps'}" (click)="clickMenu('DevOps')">DevOps</li>
+            <li class="menu-li" id="allData" [ngClass]="{'active': selectedItem == 'allData'}" (click)="clickMenu('allData')">All</li>
+        </ul>
+    </div>
+    <div class="dashboard-content">
+        <div class="grid-heading">
+            <h2 class="dasboard-content-heading">{{selectedItem}} Graph</h2>
+            <!-- <button class="export-button" (click)="exportGraphInPdf()">Export Graph</button> -->
+        </div>
+        <div id="graph-div">
+            <ngx-charts-bar-vertical *ngIf="isDisplayBarChart"
+            [results]="data"
+            [view]="view"
+            [gradient]="gradient"
+            [xAxis]="xAxis"
+            [yAxis]="yAxis"
+            [legend]="legend"
+            [showXAxisLabel]="showXAxisLabel"
+            [showYAxisLabel]="showYAxisLabel"
+            [xAxisLabel]="xAxisLabel"
+            [yAxisLabel]="yAxisLabel"
+            [legendTitle]="legendTitle"
+            [animations]="animations"
+            [showGridLines]="showGridLines"
+            [showDataLabel]="showDataLabel"
+            [barPadding]="barPadding"
+            [tooltipDisabled]="tooltipDisabled"
+            [roundEdges]="roundEdges"
+            ></ngx-charts-bar-vertical>
+            
+            <ngx-charts-bar-vertical-2d *ngIf="isDisplayCombinedBarChart" 
+            [results]="technologiesData"
+            [view]="view"
+            [gradient]="gradient"
+            [xAxis]="xAxis"
+            [yAxis]="yAxis"
+            [legend]="legend"
+            [showXAxisLabel]="showXAxisLabel"
+            [showYAxisLabel]="showYAxisLabel"
+            [xAxisLabel]="xAxisLabel"
+            [yAxisLabel]="yAxisLabel"
+            [legendTitle]="legendTitle"
+            [animations]="animations"
+            [showGridLines]="showGridLines"
+            [showDataLabel]="showDataLabel"
+            [barPadding]="barPadding"
+            [tooltipDisabled]="tooltipDisabled"
+            [roundEdges]="roundEdges"
+            ></ngx-charts-bar-vertical-2d>
+        </div>
+        
+        <br/>
+        <div style="clear: both;"></div>
+        <div class="grid-heading">
+            <h2 class="dasboard-content-heading">{{selectedItem}} Grid</h2>
+            <div>
+                <button class="export-button" (click)="exportGridInXlsx()">Export Displayed Data</button>
+                <button class="export-button" (click)="exportCompleteGridInXlsx()">Export All Pages Data</button>
+            </div>
+        </div>
+        <div class="table-container">
+            <mat-form-field appearance="standard">
+                <mat-label>Filter</mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Search here" #input>
+            </mat-form-field>
+            <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" id="profiles-table">
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                    <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="fullName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Full Name </th>
+                    <td mat-cell *matCellDef="let row"> {{row.fullName}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="enterpriseId">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Enterprise ID </th>
+                    <td mat-cell *matCellDef="let row"> {{row.enterpriseId}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="stage">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Stage </th>
+                    <td mat-cell *matCellDef="let row"> {{row.stage}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="technology">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Technology </th>
+                    <td mat-cell *matCellDef="let row"> {{row.technology}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[10, 20, 50, 100]"></mat-paginator>
+        </div>
+        <br/><br/>
+    </div>
+</div>

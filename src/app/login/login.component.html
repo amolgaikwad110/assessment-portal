@@ -1,0 +1,23 @@
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="container  p-5">
+        <h1>Login</h1>
+        <hr>
+
+        <label for="employeeId"><b>Employee Id</b></label>
+        <input type="text" placeholder="Enter Employee Id" name="employeeId" id="employeeId" formControlName="employeeId">
+
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" id="password" formControlName="password">
+
+        <label for="skills"><b>Skills</b></label>
+        <select name="skills" id="skills" formControlName="skills" formControlName="skills">
+            <option value="">Select Skills</option>
+            <option [value]="skill.skillId" *ngFor="let skill of skills">{{skill.skillName}}</option>
+        </select>
+        
+        <button type="submit" class="registerbtn">Login</button>
+    </div>
+    <div class="container signin">
+        <p><a routerLink="/register">Register</a></p>
+    </div>
+</form>
