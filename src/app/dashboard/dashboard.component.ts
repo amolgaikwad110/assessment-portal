@@ -51,7 +51,7 @@ export class DashboardComponent implements OnInit {
 
   //Material table params
   displayedColumns = ['id', 'fullName', 'enterpriseId', 'stage', 'technology'];
-  dataSource  = new MatTableDataSource([]);
+  dataSource = new MatTableDataSource([]);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) matSort!: MatSort;
@@ -60,7 +60,7 @@ export class DashboardComponent implements OnInit {
   exportGridFileName: string = '';
   exportGraphFileName: string = '';
 
-  constructor(private service: AssessmentService) {}
+  constructor(private service: AssessmentService) { }
 
   ngOnInit(): void {
 
@@ -77,7 +77,7 @@ export class DashboardComponent implements OnInit {
 
       this.data = graphdata[0].series;
 
-    
+
       this.legendTitle = 'Angular';
       this.selectedItem = 'Angular';
 
@@ -93,7 +93,7 @@ export class DashboardComponent implements OnInit {
         }
         return;
       });
-  
+
 
       this.dataSource = new MatTableDataSource(grid);
     });
@@ -106,36 +106,36 @@ export class DashboardComponent implements OnInit {
   }
 
   clickMenu(id: any): void {
-    if (id !== 'allData') {
-      var graphdata = this.allData.filter((arrayItem) => {
-        if (arrayItem.name == id) {
-          return arrayItem.series;
-        }
-        return;
-      });
-      this.data = graphdata[0].series;
-      this.legendTitle = id;
-      this.isDisplayBarChart = true;
-      this.isDisplayCombinedBarChart = false;
-      this.selectedItem = id;
+    // if (id !== 'allData') {
+    var graphdata = this.allData.filter((arrayItem) => {
+      if (arrayItem.name == id) {
+        return arrayItem.series;
+      }
+      return;
+    });
+    this.data = graphdata[0].series;
+    this.legendTitle = id;
+    this.isDisplayBarChart = true;
+    this.isDisplayCombinedBarChart = false;
+    this.selectedItem = id;
 
-      var grid = this.gridData.filter((item: any) => {
-        if (item.technology == id) {
-          return item;
-        }
-        return;
-      });
+    var grid = this.gridData.filter((item: any) => {
+      if (item.technology == id) {
+        return item;
+      }
+      return;
+    });
 
-      this.dataSource = new MatTableDataSource(grid);
-    } else {
-      this.legendTitle = 'Technologies';
-      this.isDisplayBarChart = false;
-      this.isDisplayCombinedBarChart = true;
-      this.xAxisLabel = 'Technologies';
-      this.selectedItem = 'allData';
+    this.dataSource = new MatTableDataSource(grid);
+    // } else {
+    //   this.legendTitle = 'Technologies';
+    //   this.isDisplayBarChart = false;
+    //   this.isDisplayCombinedBarChart = true;
+    //   this.xAxisLabel = 'Technologies';
+    //   this.selectedItem = 'allData';
 
-      this.dataSource = new MatTableDataSource(this.gridData);
-    }
+    //   this.dataSource = new MatTableDataSource(this.gridData);
+    // }
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.matSort;
   }
