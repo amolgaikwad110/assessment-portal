@@ -7,42 +7,22 @@
         </div>
         <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
           <label class="options">
-            <input
-              type="radio"
-              [name]="question.questionId"
-              value="option1"
-              (change)="onChange(i, 'option1')"
-            />
+            <input type="radio" [name]="question.questionId" value="option1" (change)="onChange(i, 'option1')" />
             <span class="checkmark"></span>
             {{ question.option1 }}
           </label>
           <label class="options">
-            <input
-              type="radio"
-              [name]="question.questionId"
-              value="option2"
-              (change)="onChange(i, 'option2')"
-            />
+            <input type="radio" [name]="question.questionId" value="option2" (change)="onChange(i, 'option2')" />
             <span class="checkmark"></span>
             {{ question.option2 }}
           </label>
           <label class="options">
-            <input
-              type="radio"
-              [name]="question.questionId"
-              value="option3"
-              (change)="onChange(i, 'option3')"
-            />
+            <input type="radio" [name]="question.questionId" value="option3" (change)="onChange(i, 'option3')" />
             <span class="checkmark"></span>
             {{ question.option3 }}
           </label>
           <label class="options">
-            <input
-              type="radio"
-              [name]="question.questionId"
-              value="option4"
-              (change)="onChange(i, 'option4')"
-            />
+            <input type="radio" [name]="question.questionId" value="option4" (change)="onChange(i, 'option4')" />
             <span class="checkmark"></span>
             {{ question.option4 }}
           </label>
@@ -61,10 +41,9 @@
 </form>
 
 <div *ngIf="isQuestionSubmitted" class="result-page">
-   
-        <div class="container p-5">
-            <h1>Thanks for giving Assessment.</h1>
-            <h1>Your Score is {{ score }}</h1>
-            <p>We will connect you soon</p>
-        </div>
+
+  <div class="container p-5" style="min-height:60vh">
+    <h1>Thank you for Submitting Assessment.</h1>
+    <h5>We will contact you soon.</h5>
+  </div>
 </div>
