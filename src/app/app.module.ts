@@ -26,6 +26,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSortModule } from '@angular/material/sort';
 import { MatInputModule } from '@angular/material/input';
+import { NoRightClickDirective } from './no-right-click.directive';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { MatInputModule } from '@angular/material/input';
     FormatTimePipe,
     OurTeamComponent,
     DashboardComponent,
-    ToastComponent
+    ToastComponent,
+    NoRightClickDirective
   ],
   imports: [
     BrowserModule,

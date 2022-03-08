@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
 
   isShown!: boolean;
 
-  constructor(private service: AssessmentService) {}
+  constructor(private service: AssessmentService) { }
 
   ngOnInit() {
     this.service.toast$.subscribe((res: any) => {
@@ -27,6 +27,13 @@ export class AppComponent implements OnInit {
     this.service.close$.subscribe((res: boolean) => {
       this.isShown = !res;
     });
+
+    window.addEventListener("keyup", disableF5);
+    window.addEventListener("keydown", disableF5);
+
+    function disableF5(e: any) {
+      if ((e.which || e.keyCode) == 116) e.preventDefault();
+    };
   }
 
   ngOnDestroy() {

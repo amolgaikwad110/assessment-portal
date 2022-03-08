@@ -1,4 +1,6 @@
-<app-header></app-header>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
-<app-toast [type]="type" [message]="message" [isShown]="isShown"></app-toast>
+<div appNoRightClick>
+    <app-header></app-header>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+    <app-toast [type]="type" [message]="message" [isShown]="isShown"></app-toast>
+</div>
