@@ -120,8 +120,15 @@ export class DashboardComponent implements OnInit {
     this.selectedItem = id;
 
     var grid = this.gridData.filter((item: any) => {
+      if (id !== 'allData') {
+        if (item.technology == id) {
+          return item;
+        }
+      } else {
+        return item;
+      }
       // if (item.technology == id) {
-      return item;
+      //   return item;
       // }
       return;
     });
