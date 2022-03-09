@@ -120,14 +120,31 @@ export class DashboardComponent implements OnInit {
     this.selectedItem = id;
 
     var grid = this.gridData.filter((item: any) => {
-      if (item.technology == id) {
-        return item;
-      }
+      // if (item.technology == id) {
+      return item;
+      // }
       return;
     });
 
     this.dataSource = new MatTableDataSource(grid);
     // } else {
+
+    //   var graphdata = this.allData.filter((arrayItem) => {
+    //     if (arrayItem.name == id) {
+    //       return arrayItem.series;
+    //     }
+    //     return;
+    //   });
+    //   this.data = graphdata[0].series;
+    //   this.legendTitle = id;
+    //   this.isDisplayBarChart = true;
+    //   this.isDisplayCombinedBarChart = false;
+    //   this.selectedItem = id;
+
+    //   var grid = this.gridData.filter((item: any) => {
+    //     return item;
+    //   });
+
     //   this.legendTitle = 'Technologies';
     //   this.isDisplayBarChart = false;
     //   this.isDisplayCombinedBarChart = true;
