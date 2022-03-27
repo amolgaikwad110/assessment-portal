@@ -1,9 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, of } from 'rxjs';
-import { allData } from './../app/dashboard/chartsData';
-import { gridData } from './../app/dashboard/gridData';
-
 @Injectable({
   providedIn: 'root',
 })
@@ -21,7 +18,7 @@ export class AssessmentService {
 
   close$ = new BehaviorSubject<boolean>(false);
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   /**
    * TODO::--Create Interface for Questions
@@ -70,15 +67,5 @@ export class AssessmentService {
     return this.http.get('https://jsonplaceholder.typicode.com/users');
   }
 
-  // get list of employees
-  getEmployees() {
-    // return of(gridData)
-    return this.http.get(this.baseUrlDashboard + `employees`);
-  }
 
-  // Get GraphData
-  getGraphData() {
-    // return of(allData)
-    return this.http.get(this.baseUrlDashboard + `charts`);
-  }
 }

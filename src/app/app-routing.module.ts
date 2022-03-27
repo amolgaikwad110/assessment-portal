@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { OurTeamComponent } from './our-team/our-team.component';
 import { QuestionsComponent } from './questions/questions.component';
@@ -10,7 +9,7 @@ import { ResultComponent } from './result/result.component';
 
 const routes: Routes = [
   {
-    path: '', 
+    path: '',
     redirectTo: 'register',
     pathMatch: 'full'
   },
@@ -28,17 +27,12 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'dashboard',
-    component: DashboardComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'quiz', 
+    path: 'quiz',
     component: QuestionsComponent,
     canActivate: [AuthGuard]
   },
   {
-    path: 'result', 
+    path: 'result',
     component: ResultComponent,
     canActivate: [AuthGuard]
   }

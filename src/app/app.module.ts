@@ -16,7 +16,6 @@ import { TimerComponent } from './timer/timer.component';
 import { FormatTimePipe } from './format-time.pipe';
 import { AuthGuard } from './auth.guard';
 import { OurTeamComponent } from './our-team/our-team.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
@@ -40,7 +39,6 @@ import { NoRightClickDirective } from './no-right-click.directive';
     TimerComponent,
     FormatTimePipe,
     OurTeamComponent,
-    DashboardComponent,
     ToastComponent,
     NoRightClickDirective
   ],
