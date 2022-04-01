@@ -23,13 +23,17 @@ export class LoginComponent implements OnInit {
       skillName: 'Java',
       skillId: 2,
     },
+    {
+      skillName: 'DevOps',
+      skillId: 3,
+    },
   ];
 
   constructor(
     private router: Router,
     private service: AssessmentService,
     private fb: FormBuilder
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -52,24 +56,24 @@ export class LoginComponent implements OnInit {
       console.log('Data >>>', data);
       this.service.login(data).subscribe((res: any) => {
         localStorage['token'] = res["jwt"];
-        this.service.isLoggedIn$.next(true); 
+        this.service.isLoggedIn$.next(true);
         this.router.navigateByUrl('/quiz', { state: data.skills });
 
         this.service.toast$.next({
-          type: 'success', 
+          type: 'success',
           message: 'You are logged in successfully'
         })
       }, (err: any) => {
         this.service.isLoggedIn$.next(false);
         this.service.toast$.next({
-          type: 'error', 
+          type: 'error',
           message: 'Internal server error'
         })
       });
     } else {
       this.service.isLoggedIn$.next(false);
       this.service.toast$.next({
-        type: 'error', 
+        type: 'error',
         message: 'Please fill all the details.'
       })
     }
